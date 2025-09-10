@@ -7,6 +7,7 @@ const contenedor = document.getElementById("mostrar");
 const filtro = document.getElementById("filtro");
 const btnAZ = document.getElementById("ordenarAZ");
 const btnZA = document.getElementById("ordenarZA");
+const btnLimpiar = document.getElementById("limpiarLista");
 
 function mostrarLista() {
     contenedor.innerHTML = "";
@@ -60,7 +61,7 @@ function editarEstudiante(i, nombre) {
 
     div.appendChild(inputEdit);
     div.appendChild(btnGuardar);
-    
+
     contenedor.children[i].replaceWith(div);
 }
 
@@ -76,6 +77,12 @@ btnAgregar.addEventListener("click", () => {
     mostrarLista();
     input.value = "";
 });
+
+btnLimpiar.addEventListener("click", () => {
+    localStorage.clear;
+    estudiantes = [];
+    mostrarLista();
+})
 
 filtro.addEventListener("input", mostrarLista);
 
